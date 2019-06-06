@@ -12,10 +12,9 @@ class App < Sinatra::Base
   end
 
   post '/user_input' do
-    vowels = ["a", "e", "i", "o", "u"]
+    piglatin = Piglatinizer.new
     @phrase = params[:phrase]
-
-    erb :user_input
+    piglatin.piglatinize(@phrase)
     redirect('/user_input/piglatin')
   end
 end
